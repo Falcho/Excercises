@@ -68,8 +68,10 @@ void draw() {
   strokeWeight(5);
   line(gizmoX-30, gizmoY+75, gizmoX-45, gizmoY+120); //Left leg
   line(gizmoX+30, gizmoY+75, gizmoX+45, gizmoY+120);//Right leg
-  line(gizmoX-30, gizmoY, gizmoX-45, gizmoY+60);//Left arm
-  line(gizmoX+30, gizmoY, gizmoX+45, gizmoY+60);//Right arm
+ 
+  line(gizmoX-30, gizmoY, gizmoX-45, gizmoY-60);//Left arm
+  line(gizmoX+30, gizmoY, gizmoX+45, gizmoY-60);//Right arm
+ 
 
   if (mouseX == gizmoX || mouseY == gizmoY) {
     println("Stop touching me!");
