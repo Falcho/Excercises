@@ -5,7 +5,7 @@ float gizmoY;
 float hueValue = 0;
 
 void setup() {
-  size(500, 500); //sets the size of the window
+  size(800, 800); //sets the size of the window
   gizmoX = width/2;
   gizmoY = height-400;
   smooth(); //this enables anti-aliasing, which smooths the odges of our shapes
@@ -36,7 +36,7 @@ void draw() {
    float tieG = random(255);
    float tieB = random(255);
    fill(tieR, tieG, tieB);*/
-  pushStyle(); //Save the current color mode
+  pushStyle(); //Save the current settings
   colorMode(HSB, 360, 100, 100); //Sets color mode to HSB
   hueValue += 0.5; //Increase the hue value slowly
   hueValue %= 360; //Wrap the hue value to keep it within the valid range (0 to 360)
@@ -45,7 +45,7 @@ void draw() {
   quad(gizmoX-10, gizmoY+45, gizmoX, gizmoY-55, gizmoX+10, gizmoY+45, gizmoX, gizmoY+70);
 
   //draw Gizmo's head
-  popStyle();
+  popStyle(); //returns to pushStyle settings
   fill(40, 205, 0);
   ellipse(gizmoX, gizmoY-75, 100, 120);
 
@@ -68,9 +68,14 @@ void draw() {
   strokeWeight(5);
   line(gizmoX-30, gizmoY+75, gizmoX-45, gizmoY+120); //Left leg
   line(gizmoX+30, gizmoY+75, gizmoX+45, gizmoY+120);//Right leg
- 
+if (gizmoY > width/2){
   line(gizmoX-30, gizmoY, gizmoX-45, gizmoY-60);//Left arm
   line(gizmoX+30, gizmoY, gizmoX+45, gizmoY-60);//Right arm
+}
+ else if (gizmoY < width/2){
+  line(gizmoX-30, gizmoY, gizmoX-45, gizmoY+60);//Left arm
+  line(gizmoX+30, gizmoY, gizmoX+45, gizmoY+60);//Right arm
+ }
  
 
   if (mouseX == gizmoX || mouseY == gizmoY) {
